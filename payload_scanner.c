@@ -1,13 +1,14 @@
 #include <stdint.h>
 
-#define SCAN_ITER (0x100000)
+#define SCAN_ITER (0x10000)
 
 int main() {
     static uint32_t scan_start;
+    static uint32_t usb_interrupt;
 
     if (!scan_start) {
-        scan_start = *(uint32_t*)0x20;
-        scan_start &= 0xFFFF0000;
+        usb_interrupt = *(uint32_t*)0x20;
+        scan_start = usb_interrupt & 0xFFFF0000;
     }
 
     for (uint8_t *addr = (uint8_t*)scan_start; addr < (uint8_t*)(scan_start + SCAN_ITER); ++addr) {
@@ -23,10 +24,10 @@ int main() {
             addr[7] = ((uint32_t)addr >> 16) & 0xFF;
             addr[8] = ((uint32_t)addr >> 24) & 0xFF;
 
-            addr[9] = ((uint32_t)scan_start) & 0xFF;
-            addr[10] = ((uint32_t)scan_start >> 8) & 0xFF;
-            addr[11] = ((uint32_t)scan_start >> 16) & 0xFF;
-            addr[12] = ((uint32_t)scan_start >> 24) & 0xFF;
+            addr[9] = ((uint32_t)usb_interrupt) & 0xFF;
+            addr[10] = ((uint32_t)usb_interrupt >> 8) & 0xFF;
+            addr[11] = ((uint32_t)usb_interrupt >> 16) & 0xFF;
+            addr[12] = ((uint32_t)usb_interrupt >> 24) & 0xFF;
             break;
         }
     }
