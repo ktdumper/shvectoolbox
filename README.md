@@ -33,6 +33,17 @@ For G1 phones. Example:
 python setup_exploit.py --vid 04c5 --pid 1199 --smash 0x8ec --dump_addr 0xe0600000 --dump_size 0x40000
 ```
 
+## g1_takeover
+
+For G1 phones. Example:
+
+```
+# Most common
+python g1_takeover.py --vid 04dd --pid 916f --addr 0xe0000000 --reboot 0xe0601938 --usb_reset 0xe0603318 --usb_getch 0xe0602c9c --usb_send 0xe0602f58 --usb_send_commit 0xe06029f0
+# F884ies
+python g1_takeover.py --vid 04c5 --pid 1199 --addr 0xe0000000 --reboot 0xe0601968 --usb_reset 0xe06032ec --usb_getch 0xe0602ccc --usb_send 0xe0602f88 --usb_send_commit 0xe0602a20
+```
+
 ## Examples
 
 ### F902i
