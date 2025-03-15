@@ -24,3 +24,10 @@ Next, you can run `dump_memory` in order to readout memory from the device:
 ```
 sudo python exploit.py --vid 06d3 --pid 21b0 --addr 0x64000000 --commdesc 0x6460xxxx --dump_addr 0xADDR --dump_size 0xSIZE dump_memory
 ```
+
+## Examples
+
+### F902i
+```
+python exploit.py --vid 04c5 --pid 10ce --addr 0xE0000000 --commdesc 0xE04806F0 --dump_addr 0x30000000 --dump_size 0x400000 dump_memory
+```
