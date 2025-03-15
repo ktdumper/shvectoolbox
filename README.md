@@ -28,6 +28,14 @@ sudo python exploit.py --vid 06d3 --pid 21b0 --addr 0x64000000 --commdesc 0x6460
 ## Examples
 
 ### F902i
+
 ```
 python exploit.py --vid 04c5 --pid 10ce --addr 0xE0000000 --commdesc 0xE04806F0 --dump_addr 0x30000000 --dump_size 0x400000 dump_memory
+```
+
+### F884i
+
+```
+sudo python exploit.py --vid 04c5 --pid 112a --addr 0x64000000 locate_commdesc
+sudo python exploit.py --vid 04c5 --pid 112a --addr 0x64000000 --commdesc 0x64608354 --dump_addr 0x64600000 --dump_size 0x100000 dump_memory
 ```
