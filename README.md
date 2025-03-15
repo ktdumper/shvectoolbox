@@ -25,6 +25,14 @@ Next, you can run `dump_memory` in order to readout memory from the device:
 sudo python exploit.py --vid 06d3 --pid 21b0 --addr 0x64000000 --commdesc 0x6460xxxx --dump_addr 0xADDR --dump_size 0xSIZE dump_memory
 ```
 
+## setup_exploit
+
+For G1 phones. Example:
+
+```
+python setup_exploit.py --vid 04c5 --pid 1199 --smash 0x8ec --dump_addr 0xe0600000 --dump_size 0x40000
+```
+
 ## Examples
 
 ### F902i
